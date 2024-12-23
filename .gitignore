@@ -1,0 +1,30 @@
+# LaTeX intermediate and output files
+*.aux
+*.log
+*.out
+*.toc
+*.lof
+*.lot
+*.fls
+*.fdb_latexmk
+*.synctex.gz
+*.bbl
+*.blg
+*.brf
+*.run.xml
+*.nav
+*.snm
+
+# Editor backup files
+*~
+.*.swp
+.*.swo
+
+# PDF output
+*.pdf
+
+# Directories to ignore
+_minted*
+*/_minted*
+
+
