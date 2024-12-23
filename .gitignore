@@ -1,4 +1,4 @@
-# LaTeX intermediate and output files
+
 *.aux
 *.log
 *.out
@@ -19,9 +19,6 @@
 *~
 .*.swp
 .*.swo
-
-# PDF output
-*.pdf
 
 # Directories to ignore
 _minted*
