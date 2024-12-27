@@ -335,6 +335,24 @@
 % ------------------------------------------------------------------------------------------------
 
 % ------------------------------------------------------------------------------------------------
+\begin{frame}
+  \bgNavy{Example}
+  
+  \bigskip
+  Consider $U(x,y) = 2xy$ and $I=10$, $P_{x} = 2$, $P_{y}$. Solve for the Consumers optimal choices of goods $x$ and $y$ using the Lagrangian Method.
+\end{frame}
+% ------------------------------------------------------------------------------------------------
+
+% ------------------------------------------------------------------------------------------------
+\begin{frame}
+  \bgCranberry{Try It Yourself}
+  
+  \bigskip
+  Consider $U(x,y) = xy$ and $I=80$, $P_{x} = 4$, $P_{y}=2$. Solve for the Consumers optimal choices of goods $x$ and $y$ using the Lagrangian Method.
+\end{frame}
+% ------------------------------------------------------------------------------------------------
+
+% ------------------------------------------------------------------------------------------------
 \begin{frame}{Unconstrained Optimization}
   To solve using unconstrained optimization, first solve for $y$ in the budget constraint $P_x x + P_y y = I$.
 
@@ -381,6 +399,24 @@
     &\Rightarrow \frac{\delta U}{\delta x}/{P_x} = \frac{\delta U}{\delta y} /{P_y} \\
     &\rightarrow \frac{MU_x}{P_x} = \frac{MU_y} {P_y}
   \end{align*}
+\end{frame}
+% ------------------------------------------------------------------------------------------------
+
+% ------------------------------------------------------------------------------------------------
+\begin{frame}
+  \bgNavy{Example}
+  
+  \bigskip
+  Consider $U(x,y) = 2xy$ and $I=10$, $P_{x} = 2$, $P_{y}$. Solve for the Consumers optimal choices of goods $x$ and $y$ using Unconstrained Optimization.
+\end{frame}
+% ------------------------------------------------------------------------------------------------
+
+% ------------------------------------------------------------------------------------------------
+\begin{frame}
+  \bgCranberry{Try It Yourself}
+  
+  \bigskip
+  Consider $U(x,y) = xy$ and $I=80$, $P_{x} = 4$, $P_{y}=2$. Solve for the Consumers optimal choices of goods $x$ and $y$ using Unconstrained Optimization.
 \end{frame}
 % ------------------------------------------------------------------------------------------------
 
@@ -465,7 +501,7 @@
 
 % ------------------------------------------------------------------------------------------------
 \begin{frame}{Finding the Optimal Bundle}
-  Suppose $U(x,y) = \sqrt{x}\sqrt{y}$. Let $P_x = 2, P_y=3$ and $I = 24$.
+  Suppose $U(x,y) = x^{\frac{1}{2}}y^{\frac{1}{2}}$. Let $P_x = 2, P_y=3$ and $I = 24$.
 
   \only<1>{
     \bigskip
@@ -474,10 +510,10 @@
 
   \only<2->{
     \bigskip
-    $MU_x = \frac{\sqrt{y}}{2\sqrt{x}}$ and $MU_y = \frac{\sqrt{x}}{2\sqrt{y}}$
+    $MU_x = \frac{y^{\frac{1}{2}}}{2x^{\frac{1}{2}}}$ and $MU_y = \frac{x^{\frac{1}{2}}}{2y^{\frac{1}{2}}}$
     
     \bigskip
-    Then our \navy{optimality condition} is $\frac{\sqrt{y}}{2\sqrt{x}} / \frac{\sqrt{x}}{2\sqrt{y}} = \frac{2}{3} $
+    Then our \navy{optimality condition} is $\frac{y^{\frac{1}{2}}}{2x^{\frac{1}{2}}} / \frac{x^{\frac{1}{2}}}{2y^{\frac{1}{2}}} = \frac{2}{3} $
 
     $$
       \implies y = \frac{2}{3} x
@@ -531,6 +567,15 @@
 % ------------------------------------------------------------------------------------------------
 
 % ------------------------------------------------------------------------------------------------
+\begin{frame}
+  \bgCranberry{Try It Yourself}
+  
+  \bigskip
+  Consider $U(x,y) = x^{\frac{1}{2}}y^{\frac{1}{2}}$ and $I=80$, $P_{x} = 4$, $P_{y}=2$. Solve for the Consumers optimal choices of goods $x$ and $y$ and the resulting demand functions.
+\end{frame}
+% ------------------------------------------------------------------------------------------------
+
+% ------------------------------------------------------------------------------------------------
 \begin{frame}{Three Utility Functions}
   How do you find demand for the three utility functions?
   \begin{enumerate}
@@ -563,6 +608,15 @@
 
   \bigskip
   Solve these two equations for $x^*$ and $y^*$.
+\end{frame}
+% ------------------------------------------------------------------------------------------------
+
+% ------------------------------------------------------------------------------------------------
+\begin{frame}
+  \bgCranberry{Try It Yourself}
+  
+  \bigskip
+  Consider $U(x,y) = x^{\frac{1}{4}}y^{\frac{3}{4}}$ and $I=400$, $P_{x} = 20$, $P_{y}=40$. Solve for the Consumers optimal choices of goods $x$ and $y$ and the resulting demand functions.
 \end{frame}
 % ------------------------------------------------------------------------------------------------
 
@@ -611,6 +665,151 @@
 % ------------------------------------------------------------------------------------------------
 
 % ------------------------------------------------------------------------------------------------
+\begin{frame}{Corner Solutions}
+  So far are our maximization problems have had interior solutions where positive quantities of both goods are consumed, e.g. $x^{*}>0$ \& $y^{*}>0$
+  
+  \bigskip
+  Key characteristic is that the optimal solution is where the indifference curve is tangent to the budget constraint, which requires preferences to be ``well-behaved":
+  \begin{itemize}
+    \item Smooth
+
+    \item Convex (curved in)
+    
+    \item Not touch the two axis
+  \end{itemize} 
+\end{frame}
+% ------------------------------------------------------------------------------------------------
+
+% ------------------------------------------------------------------------------------------------
+\begin{frame}
+  \vspace{-5mm}
+  \begin{figure}
+    \caption{Utility Maximization}
+    
+    \begin{tikzpicture}
+      \begin{axis}[
+        width = 10cm,
+        height = 8cm,
+        xmin = 0, xmax = 50,
+        ymin = 0, ymax = 25,
+        axis lines = left,
+        xtick = {0, 10, 20, 30, 40}, 
+        ytick = {5, 10, 15, 20},
+        x label style={at={(axis description cs:0.5,-0.07)},anchor=north},
+        y label style={at={(axis description cs:-0.07,.5)},anchor=south},
+        xlabel = {\small $x$, units of food},
+        ylabel = {\small $y$, units of clothing},
+        clip = false,
+      ]
+        % Budget Lines
+        \addplot[domain = 0:40, samples = 400, color = cranberry, thick]{20 - 1/2*x};
+
+        % Indifference curves
+        % \node [right,color=alice!25!white] at (axis cs: 12, 4/12) {$U = 2$};
+        
+        \addplot[domain = 0:50, restrict y to domain = 0:25, samples = 400, color = alice!70!white, very thick]{200/x};
+
+        % \node [right,color=alice!50!white] at (axis cs: 12, 16/12) {$U = 4$};
+
+        % Highlight Points
+        \addplot[color = black, mark = *, only marks, mark size = 2pt] 
+          coordinates {(0, 20) (20, 10) (40, 0)};
+        \node [anchor = south west] at (axis cs:20, 10) {$A$};
+
+        % Dotted lines
+        \addplot[color = black, dotted, thick] 
+          coordinates {(0, 10) (20, 10) (20, 0)};
+
+        % Annotations
+        \node (E) [anchor = south east, xshift = -0.25cm, yshift = 0.5cm] at (axis cs: 0, 20) 
+        [fill=cranberry!20, minimum size=0.5cm]{$\frac{I}{P_Y} = 20$};
+        \addplot[color = black, thick] 
+          coordinates {(-2.25, 22) (0, 20)};
+
+        \node (A) [anchor = north west, yshift = -0.6cm] at (axis cs: 40, 0) 
+          [fill=cranberry!20, minimum size=0.5cm]{$\frac{I}{P_X} = 40$};
+        \addplot[color = black, thick] 
+          coordinates {(45.5, -2.4) (40, 0)};
+
+
+
+      \end{axis}
+    \end{tikzpicture}
+  \end{figure}
+\end{frame}
+% ------------------------------------------------------------------------------------------------
+
+% ------------------------------------------------------------------------------------------------
+\begin{frame}{Corner Solutions}
+  At a corner solution only one good is consumed at a positive quantity, e.g. $x^{*}>0$ \& $y^{*}=0$
+  
+  \bigskip
+  Occurs when preferences are not well-behaved, such as by crossing one of the axis
+  
+  \bigskip
+  Optimal solution is to spend all income on one good and none on the other good  
+\end{frame}
+% ------------------------------------------------------------------------------------------------
+
+% ------------------------------------------------------------------------------------------------
+\begin{frame}
+  \vspace{-5mm}
+  \begin{figure}
+    \caption{Utility Maximization}
+    
+    \begin{tikzpicture}
+      \begin{axis}[
+        width = 10cm,
+        height = 8cm,
+        xmin = 0, xmax = 50,
+        ymin = 0, ymax = 25,
+        axis lines = left,
+        xtick = {0, 10, 20, 30, 40}, 
+        ytick = {5, 10, 15, 20},
+        x label style={at={(axis description cs:0.5,-0.07)},anchor=north},
+        y label style={at={(axis description cs:-0.07,.5)},anchor=south},
+        xlabel = {\small $x$, units of food},
+        ylabel = {\small $y$, units of clothing},
+        clip = false,
+      ]
+        % Budget Line
+        \addplot[domain = 0:40, samples = 400, color = cranberry, thick]{20 - 1/2*x};
+
+        % Indifference curve for corner solution
+        \addplot[domain = 0:50, restrict y to domain = 0:25, samples = 400, color = alice!40!white, very thick]{-1.2*x + 58};
+        % \node [right,color=alice!25!white] at (axis cs: 12, 4/12) {$U = 2$};
+        
+        \addplot[domain = 0:50, restrict y to domain = 0:25, samples = 400, color = alice!70!white, very thick]{-1.2*x + 48};
+
+        \addplot[domain = 0:50, restrict y to domain = 0:25, samples = 400, color = alice!100!white, very thick]{-1.2*x + 38};
+
+        % Highlight Point (corner solution)
+        \addplot[color = black, mark = *, only marks, mark size = 2pt] 
+          coordinates {(40, 0)};
+        \node [anchor = south west] at (axis cs:40, 0) {$A$};
+
+        % Annotations
+        \node (A) [anchor = north west, yshift = -0.6cm] at (axis cs: 40, 0) 
+          [fill=cranberry!20, minimum size=0.5cm]{$\frac{I}{P_X} = 40$};
+        \addplot[color = black, thick] 
+          coordinates {(45.5, -2.4) (40, 0)};
+
+      \end{axis}
+    \end{tikzpicture}
+  \end{figure}
+\end{frame}
+% ------------------------------------------------------------------------------------------------
+
+% ------------------------------------------------------------------------------------------------
+\begin{frame}
+  \bgCranberry{Try It Yourself}
+  
+  \bigskip
+  Consider $U(x,y) = xy + 7y$ and $I=10$, $P_{x} = 1$, $P_{y}=2$. Solve for the Consumers optimal choices of goods $x$ and $y$ and the resulting demand functions.
+\end{frame}
+% ------------------------------------------------------------------------------------------------
+
+% ------------------------------------------------------------------------------------------------
 \begin{frame}{Perfect Complements}
   $U(x,y) = \min\big( ax, by \big)$. How do we even take a derivative of this?
 
@@ -628,131 +827,6 @@
 
   \bigskip
   Solve these two equations for $x^*$ and $y^*$.
-\end{frame}
-% ------------------------------------------------------------------------------------------------
-
-% ------------------------------------------------------------------------------------------------
-\begin{frame}{Clubs and Two-Part Tariffs}
-  Suppose that you have \$300 to spend on CDs (what are those?), and that each CD costs \$20 (call this budget line 1)
-
-  \begin{itemize}
-    \item You can purchase 15 CDs at most, or spend some of that money on other things.
-  \end{itemize}
-
-  \bigskip
-  But what if you could pay \$100, and each CD only cost \$10 (call this budget line 2). This is called a \textbf{two-part tariff}. Part 1: pay to enter the club. Part 2: pay for quantity you want.
-\end{frame}
-% ------------------------------------------------------------------------------------------------
-
-% ------------------------------------------------------------------------------------------------
-\begin{frame}
-  \vspace{-5mm}
-  \begin{figure}
-    \caption{Consumer signs up for club}
-    
-    \begin{tikzpicture}
-      \begin{axis}[
-        width = 10cm,
-        height = 8cm,
-        xmin = 0, xmax = 25,
-        ymin = 0, ymax = 400,
-        axis lines = left,
-        xtick = {0, 10, 15, 20}, 
-        ytick = {200, 300},
-        x label style={at={(axis description cs:0.5,-0.07)},anchor=north},
-        y label style={at={(axis description cs:-0.12,.5)},anchor=south},
-        xlabel = {\small $CD$, number of CDs},
-        ylabel = {\small $y$, units of the `composite' good},
-        clip = false,
-      ]
-        % Budget Line 1
-        \addplot[domain = 0:15, samples = 400, color = cranberry!60!white, thick]{300 - 20*x};
-        \node [anchor = south west, yshift=-0.2cm] at (axis cs:0, 300) {$BL_1$};
-        
-        % Budget Line 2
-        \addplot[domain = 0:20, samples = 400, color = cranberry, thick]{200 - 10*x};
-        \node [anchor = south west, yshift=-0.2cm] at (axis cs:0, 200) {$BL_2$};
-
-        % Indifference curves
-        \addplot[domain = 7:24, restrict y to domain = 0:400, samples = 400, color = alice!70!white, very thick]{2000/x^(1.1) - 60};
-
-        \addplot[domain = 7:24, restrict y to domain = 0:400, samples = 400, color = alice!100!white, very thick]{2200/x^(1.1) - 60};
-        % \node [right,color=alice!50!white] at (axis cs: 12, 16/12) {$U = 4$};
-
-        % Highlight Points
-        \addplot[color = black, mark = *, only marks, mark size = 2pt] 
-          coordinates {(10, 100)};
-        \node [anchor = north east] at (axis cs:10, 100) {$A$};
-        \addplot[color = black, dotted, thick] 
-          coordinates {(0, 100) (10, 100) (10, 0)};
-
-        \addplot[color = black, mark = *, only marks, mark size = 2pt] 
-          coordinates {(14, 60)};
-        \node [anchor = south west] at (axis cs:14, 60) {$B$};
-
-      \end{axis}
-    \end{tikzpicture}
-  \end{figure}
-\end{frame}
-% ------------------------------------------------------------------------------------------------
-
-% ------------------------------------------------------------------------------------------------
-\begin{frame}
-  \vspace{-5mm}
-  \begin{figure}
-    \caption{Consumer does not sign up for club}
-    
-    \begin{tikzpicture}
-      \begin{axis}[
-        width = 10cm,
-        height = 8cm,
-        xmin = 0, xmax = 25,
-        ymin = 0, ymax = 400,
-        axis lines = left,
-        xtick = {0, 10, 15, 20}, 
-        ytick = {200, 300},
-        x label style={at={(axis description cs:0.5,-0.07)},anchor=north},
-        y label style={at={(axis description cs:-0.12,.5)},anchor=south},
-        xlabel = {\small $CD$, number of CDs},
-        ylabel = {\small $y$, units of the `composite' good},
-        clip = false,
-      ]
-        % Budget Line 1
-        \addplot[domain = 0:15, samples = 400, color = cranberry!60!white, thick]{300 - 20*x};
-        \node [anchor = south west, yshift=-0.2cm] at (axis cs:0, 300) {$BL_1$};
-        
-        % Budget Line 2
-        \addplot[domain = 0:20, samples = 400, color = cranberry, thick]{200 - 10*x};
-        \node [anchor = south west, yshift=-0.2cm] at (axis cs:0, 200) {$BL_2$};
-
-        % Indifference curves
-        \addplot[domain = 4:24, restrict y to domain = 0:400, samples = 400, color = alice!70!white, very thick]{1050/x^(0.8) - 57};
-
-        % Highlight Points
-        \addplot[color = black, mark = *, only marks, mark size = 2pt] 
-          coordinates {(7.6, 148)};
-        \node [anchor = south west] at (axis cs:7.6, 148) {$A$};
-        \addplot[color = black, dotted, thick] 
-          coordinates {(0, 148) (7.6, 148) (7.6, 0)};
-
-      \end{axis}
-    \end{tikzpicture}
-  \end{figure}
-\end{frame}
-% ------------------------------------------------------------------------------------------------
-
-% ------------------------------------------------------------------------------------------------
-\begin{frame}{Clubs and Two-Part Tariffs}
-  Note that with the two-part tariff:
-  
-  \bigskip
-  \begin{enumerate}
-    \item Some consumers (those who want to buy relatively more of the product) will choose to pay the $ \$100$ fee.
-    \item Those who wouldn't have bought many units anyway won't benefit from the two-part tariff.
-  \end{enumerate}
-  
-  \pause\bigskip
-  What are some other examples of products where you can pay a flat rate in exchange for a lower per-unit price?
 \end{frame}
 % ------------------------------------------------------------------------------------------------
 
