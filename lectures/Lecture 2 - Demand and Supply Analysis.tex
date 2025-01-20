@@ -4,7 +4,7 @@
 \author{Michael R. Karas}
 \title{Lecture 2 - Demand and Supply}
 \subtitle{ECON 3070 - Intermediate Microeconomic Theory}
-\date{January 17, 2025}
+\date{January 22, 2025}
 
 \begin{document}
 
@@ -397,62 +397,97 @@ Suppose that the supply curve for Chaco's sandals in Boulder is given by $Q^S_{c
 % ------------------------------------------------------------------------------------------------
 
 % ------------------------------------------------------------------------------------------------
-\begin{frame}[c]
-  \begin{tikzpicture}
-    \begin{axis}[
-      width = 12cm,
-      height = 9cm,
-      xmin = 0, xmax = 30,
-      ymin = 0, ymax = 9,
-      axis lines = left,
-      xtick = \empty, ytick = \empty,
-      x label style={at={(axis description cs:0.5,-0.07)},anchor=north},
-      y label style={at={(axis description cs:-0.07,.5)},anchor=south},
-      xlabel = {\small Quantity (billion of bushels per year)},
-      ylabel = {\small Price (dollars per bushel)},
-      clip = false,
-    ]
-      % Demand Curve
-      \addplot[color = alice, very thick] 
-        coordinates {(0, 23/3) (11, 4) (14, 3) (23, 0)};
-      \node [anchor = south west, text width = 3cm] at (23, 0) 
-        {\small Demand};
-        
-      % Supply Curve
-      \addplot[color = ruby, very thick] 
-      coordinates {(4, 1/2) (9, 3) (11, 4) (15, 6)};
-      \node [anchor = south west, text width = 3cm] at (15, 5.5) 
-        {\small Supply};
-    
-      % Dotted lines
-      \addplot[color = black, dotted, thick] 
-        coordinates {(0, 4) (11, 4) (11, 0)};
-      \addplot[color = black, dotted, thick] 
-        coordinates {(0, 3) (9, 3) (9, 0)};
-      \addplot[color = black, dotted, thick] 
-        coordinates {(14, 3) (14, 0)};      
+\begin{frame}{Aggregating Supply}
+  Consider if you have two producers of a good. Each producer's supply curve tells us \emph{at a given price}, how many units will they sell.
 
-      % Curly brace
-      \draw [decorate,decoration={brace,amplitude=2pt,mirror}, yshift = -0.2cm]
-        (axis cs:9,3) -- (axis cs:14,3) node [black, midway, yshift = -0.8cm] 
-        {\small 
-          \begin{tabular}{l}Excess demand \\ when price is $\$3$\end{tabular}
-        };
+  \bigskip
+  How do we figure out the aggregate supply curve? 
   
-      % Coordinate Points
-      \addplot[color = black, mark = *, only marks, mark size = 2pt] 
-        coordinates {(9, 3) (11, 4) (14, 3)};
-      \node [above] at (11, 4.25) {\small $E$};
-  
-      % Labels
-      \node [left] at (0, 3) {\small $\$3$};
-      \node [left] at (0, 4) {\small $\$4$};
-      \node [below] at (0, 0) {\small $0$};
-      \node [below] at (9, 0) {\small $9$};
-      \node [below] at (11, 0) {\small $11$};
-      \node [below] at (14, 0) {\small $14$};
-    \end{axis}
-  \end{tikzpicture}
+  \pause 
+  \begin{itemize}
+    \item \emph{At a given price}, add up each producer's quantity supplied
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Aggregating Supply}
+  Suppose we have two producers, A and B. Suppose that
+  $$
+    Q_A^S =
+    \begin{cases}
+      4P - 12 & \text{if } P \geq 3 \\
+      0       & \text{otherwise}.
+    \end{cases} 
+    \quad\quad
+    Q_B^S =
+    \begin{cases}
+      3P - 15 & \text{if } P  \geq 5 \\
+      0       & \text{otherwise}.
+    \end{cases}
+  $$
+
+  \vspace{10mm}
+  \only<1>{
+    At a price of $P \geq 5$, both producers will supply, so supply is given by
+    $$Q_{mkt}^S = Q_A^S + Q_B^S = (4P - 12) + (3P - 15) = 7P - 27$$
+  }
+
+  \only<2>{
+    At a price $3 \leq P < 5$, only producer A will produce ($Q_B^S = 0$), so supply is given by
+    $$Q_{mkt}^S = Q_A^S + Q_B^S = (4P - 12) + 0 = 4P - 12$$
+  }
+
+  \only<3> {
+    At a price $P < 3$, no one produces anything, so 
+    $$Q_{mkt}^S = Q_A^S + Q_B^S = 0 + 0 = 0$$ 
+  }
+\end{frame}
+% ------------------------------------------------------------------------------------------------
+
+% ------------------------------------------------------------------------------------------------
+\begin{frame}{Aggregating Supply}
+  Putting this together, we have 
+  $$
+    Q_{mkt}^S =
+    \begin{cases}
+      7P - 27 & \text{if } P \geq 5     \\
+      4P - 12 & \text{if } 3 < P \leq 5 \\
+      0       & \text{otherwise}.
+    \end{cases}
+  $$
+\end{frame}
+% ------------------------------------------------------------------------------------------------
+
+% ------------------------------------------------------------------------------------------------
+\begin{frame}
+  \bgCranberry{Try It Yourself}
+
+  \bigskip
+  Find the aggregate supply curve:
+
+  $$
+    Q_A^S =
+    \begin{cases}
+      5P - 25 & \text{if } P \geq 5 \\
+      0       & \text{otherwise}.
+    \end{cases}
+    \quad\quad
+    Q_B^S =
+    \begin{cases}
+      3P - 24 & \text{if } P  \geq 8 \\
+      0       & \text{otherwise}.
+    \end{cases}
+  $$
+\end{frame}
+% ------------------------------------------------------------------------------------------------
+
+% ------------------------------------------------------------------------------------------------
+\begin{frame}{Market Equilibrium}
+  \textbf{Equilibrium} occurs at the price where quantity supplied equals quantity demanded. \alice{\emph{Why is this an equilibrium?}}
+
+  \pause
+  \begin{itemize}
+    \item What would happen if the price is \$5 per bushel?
+  \end{itemize}
 \end{frame}
 % ------------------------------------------------------------------------------------------------
 
@@ -518,15 +553,89 @@ Suppose that the supply curve for Chaco's sandals in Boulder is given by $Q^S_{c
 \begin{frame}{Market Equilibrium}
   \textbf{Equilibrium} occurs at the price where quantity supplied equals quantity demanded. \alice{\emph{Why is this an equilibrium?}}
 
-  \pause
   \begin{itemize}
-    \item What would happen if the price is \$5 per bushel? \pause Excess supply will lead to a price war by suppliers.
+    \item What would happen if the price is \$5 per bushel? Excess supply will lead to a price war by suppliers.
       \begin{itemize}
         \item The price will fall until all units are sold.
       \end{itemize}
 
     \pause 
-    \item What would happen if the price is \$3 per bushel? \pause Excess demand will lead to a bidding war by consumers.
+    \item What would happen if the price is \$3 per bushel?
+  \end{itemize}
+\end{frame}
+% ------------------------------------------------------------------------------------------------
+
+% ------------------------------------------------------------------------------------------------
+\begin{frame}[c]
+  \begin{tikzpicture}
+    \begin{axis}[
+      width = 12cm,
+      height = 9cm,
+      xmin = 0, xmax = 30,
+      ymin = 0, ymax = 9,
+      axis lines = left,
+      xtick = \empty, ytick = \empty,
+      x label style={at={(axis description cs:0.5,-0.07)},anchor=north},
+      y label style={at={(axis description cs:-0.07,.5)},anchor=south},
+      xlabel = {\small Quantity (billion of bushels per year)},
+      ylabel = {\small Price (dollars per bushel)},
+      clip = false,
+    ]
+      % Demand Curve
+      \addplot[color = alice, very thick] 
+        coordinates {(0, 23/3) (11, 4) (14, 3) (23, 0)};
+      \node [anchor = south west, text width = 3cm] at (23, 0) 
+        {\small Demand};
+        
+      % Supply Curve
+      \addplot[color = ruby, very thick] 
+      coordinates {(4, 1/2) (9, 3) (11, 4) (15, 6)};
+      \node [anchor = south west, text width = 3cm] at (15, 5.5) 
+        {\small Supply};
+    
+      % Dotted lines
+      \addplot[color = black, dotted, thick] 
+        coordinates {(0, 4) (11, 4) (11, 0)};
+      \addplot[color = black, dotted, thick] 
+        coordinates {(0, 3) (9, 3) (9, 0)};
+      \addplot[color = black, dotted, thick] 
+        coordinates {(14, 3) (14, 0)};      
+
+      % Curly brace
+      \draw [decorate,decoration={brace,amplitude=2pt,mirror}, yshift = -0.2cm]
+        (axis cs:9,3) -- (axis cs:14,3) node [black, midway, yshift = -0.8cm] 
+        {\small 
+          \begin{tabular}{l}Excess demand \\ when price is $\$3$\end{tabular}
+        };
+  
+      % Coordinate Points
+      \addplot[color = black, mark = *, only marks, mark size = 2pt] 
+        coordinates {(9, 3) (11, 4) (14, 3)};
+      \node [above] at (11, 4.25) {\small $E$};
+  
+      % Labels
+      \node [left] at (0, 3) {\small $\$3$};
+      \node [left] at (0, 4) {\small $\$4$};
+      \node [below] at (0, 0) {\small $0$};
+      \node [below] at (9, 0) {\small $9$};
+      \node [below] at (11, 0) {\small $11$};
+      \node [below] at (14, 0) {\small $14$};
+    \end{axis}
+  \end{tikzpicture}
+\end{frame}
+% ------------------------------------------------------------------------------------------------
+
+% ------------------------------------------------------------------------------------------------
+\begin{frame}{Market Equilibrium}
+  \textbf{Equilibrium} occurs at the price where quantity supplied equals quantity demanded. \alice{\emph{Why is this an equilibrium?}}
+
+  \begin{itemize}
+    \item What would happen if the price is \$5 per bushel? Excess supply will lead to a price war by suppliers.
+      \begin{itemize}
+        \item The price will fall until all units are sold.
+      \end{itemize}
+
+    \item What would happen if the price is \$3 per bushel? Excess demand will lead to a bidding war by consumers.
       \begin{itemize}
         \item The price will rise until all consumers are satisified.
       \end{itemize}
@@ -548,89 +657,6 @@ Suppose that the supply curve for Chaco's sandals in Boulder is given by $Q^S_{c
 \end{frame}
 % ------------------------------------------------------------------------------------------------
 
-% ------------------------------------------------------------------------------------------------
-\begin{frame}{Aggregating Supply}
-  Consider if you have two producers of a good. Each producer's supply curve tells us \emph{at a given price}, how many units will they sell.
-
-  \bigskip
-  How do we figure out the aggregate supply curve? 
-  
-  \pause 
-  \begin{itemize}
-    \item \emph{At a given price}, add up each producer's quantity supplied
-  \end{itemize}
-\end{frame}
-
-\begin{frame}{Aggregating Supply}
-  Suppose we have two producers, A and B. Suppose that
-  $$
-    Q_A^S =
-    \begin{cases}
-      4P - 12 & \text{if } P \geq 3 \\
-      0       & \text{otherwise}.
-    \end{cases} 
-    \quad\quad
-    Q_B^S =
-    \begin{cases}
-      3P - 15 & \text{if } P  \geq 5 \\
-      0       & \text{otherwise}.
-    \end{cases}
-  $$
-
-  \vspace{10mm}
-  \only<1>{
-    At a price of $P \geq 5$, both producers will supply, so supply is given by
-    $$Q_{mkt}^S = Q_A^S + Q_B^S = (20 - 2P) + (21 - 3P) = 41 - 5P$$
-  }
-
-  \only<2>{
-    At a price $3 \leq P < 5$, only producer A will produce ($Q_B^S = 0$), so supply is given by
-    $$Q_{mkt}^S = Q_A^S + Q_B^S = (20 - 2P) + 0 = 20 - 2P$$
-  }
-
-  \only<3> {
-    At a price $P < 3$, no one produces anything, so 
-    $$Q_{mkt}^S = Q_A^S + Q_B^S = 0 + 0 = 0$$ 
-  }
-\end{frame}
-% ------------------------------------------------------------------------------------------------
-
-% ------------------------------------------------------------------------------------------------
-\begin{frame}{Aggregating Supply}
-  Putting this together, we have 
-  $$
-    Q_{mkt}^S =
-    \begin{cases}
-      7P - 27 & \text{if } P \geq 5     \\
-      4P - 12 & \text{if } 3 < P \leq 5 \\
-      0       & \text{otherwise}.
-    \end{cases}
-  $$
-\end{frame}
-% ------------------------------------------------------------------------------------------------
-
-% ------------------------------------------------------------------------------------------------
-\begin{frame}
-  \bgCranberry{Try It Yourself}
-
-  \bigskip
-  Find the aggregate supply curve:
-
-  $$
-    Q_A^S =
-    \begin{cases}
-      5P - 25 & \text{if } P \geq 5 \\
-      0       & \text{otherwise}.
-    \end{cases}
-    \quad\quad
-    Q_B^S =
-    \begin{cases}
-      3P - 24 & \text{if } P  \geq 8 \\
-      0       & \text{otherwise}.
-    \end{cases}
-  $$
-\end{frame}
-% ------------------------------------------------------------------------------------------------
 
 % ------------------------------------------------------------------------------------------------
 \begin{frame}{Shifts in Supply and Demand}
@@ -861,32 +887,6 @@ Suppose that the supply curve for Chaco's sandals in Boulder is given by $Q^S_{c
 % ------------------------------------------------------------------------------------------------
 
 % ------------------------------------------------------------------------------------------------
-\begin{frame}{Interpreting Elasticities}
-  \only<1>{
-  $$
-    \epsilon_{Q,P} = \frac{\frac{\Delta Q}{Q}}{\frac{\Delta P}{P} }
-  $$
-  }
-  \only<2>{
-  $$
-    \epsilon = \frac{ \frac{\Delta \text{Top Thing}}{\text{Top Thing}} }{ \frac{\Delta \text{Bottom Thing}}{\text{Bottom Thing}} }
-  $$
-  }
-  \bigskip
-
-  \only<1>{
-    A $1$\% increase in price yields a $\epsilon_{Q,P}$\% change in quantity. 
-  }
-  \only<2>{
-    More generally, the way we \emph{always} interpret elasticities is:
-    
-    \bigskip
-    A $1$\% increase in \alice{Bottom Thing} yields a $\epsilon$\% change in \alice{Top Thing}
-  }
-\end{frame}
-% ------------------------------------------------------------------------------------------------
-
-% ------------------------------------------------------------------------------------------------
 \begin{frame}{Classifying the Price Elasticity of Demand}
 \begin{center}
     \resizebox{\textwidth}{!}{
@@ -916,6 +916,43 @@ Suppose that the supply curve for Chaco's sandals in Boulder is given by $Q^S_{c
     \end{tabular}
     }
   \end{center}
+\end{frame}
+% ------------------------------------------------------------------------------------------------
+
+% ------------------------------------------------------------------------------------------------
+\begin{frame}{Calculating Elasticity}
+  \bgCranberry{Try It Yourself}
+
+\bigskip
+Suppose that when the price of car tires is \$100 per tire, quantity demanded in Detroit is 40,000. Now suppose that the price has fallen to \$90, and the quantity demanded is 50,000. What is the price elasticy of demand?
+
+
+\end{frame}
+% ------------------------------------------------------------------------------------------------
+
+% ------------------------------------------------------------------------------------------------
+\begin{frame}{Interpreting Elasticities}
+  \only<1>{
+  $$
+    \epsilon_{Q,P} = \frac{\frac{\Delta Q}{Q}}{\frac{\Delta P}{P} }
+  $$
+  }
+  \only<2>{
+  $$
+    \epsilon = \frac{ \frac{\Delta \text{Top Thing}}{\text{Top Thing}} }{ \frac{\Delta \text{Bottom Thing}}{\text{Bottom Thing}} }
+  $$
+  }
+  \bigskip
+
+  \only<1>{
+    A $1$\% increase in price yields a $\epsilon_{Q,P}$\% change in quantity. 
+  }
+  \only<2>{
+    More generally, the way we \emph{always} interpret elasticities is:
+    
+    \bigskip
+    A $1$\% increase in \alice{Bottom Thing} yields a $\epsilon$\% change in \alice{Top Thing}
+  }
 \end{frame}
 % ------------------------------------------------------------------------------------------------
 
@@ -1027,17 +1064,6 @@ Suppose that the supply curve for Chaco's sandals in Boulder is given by $Q^S_{c
   \begin{itemize}
     \item Then goods $i$ and $j$ are \textbf{compliments}.
   \end{itemize}
-\end{frame}
-% ------------------------------------------------------------------------------------------------
-
-% ------------------------------------------------------------------------------------------------
-\begin{frame}{Calculating Elasticity}
-  \bgCranberry{Try It Yourself}
-
-\bigskip
-Suppose that when the price of car tires is \$100 per tire, quantity demanded in Detroit is 40,000. Now suppose that the price has fallen to \$90, and the quantity demanded is 50,000. What is the price elasticy of demand?
-
-
 \end{frame}
 % ------------------------------------------------------------------------------------------------
 
